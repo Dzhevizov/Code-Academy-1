@@ -160,7 +160,7 @@ int main()
    return 0;
 }
  int validDate(){
-    time_t t;
+    long long int t;
     t=time(NULL);
     t+=14*24*60*60;
     printf("Offer is valid until %s", ctime(&t) );
