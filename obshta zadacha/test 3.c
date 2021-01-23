@@ -9,21 +9,26 @@ int main(void){
     scanf("%d", &n);
     printf("\nEnter a base for conversion: ");
     scanf("%d", &b);
-    itob(n,s,b);
-    printf("%s\n",strrev(s));
-    if (n<0){
+    printf("\n%d (10) -> ", n); 
+    if (n>0){
+    goto print;
+    }
+    else if (n<0){
+        if (b == 2 || b == 8 || b == 16){
         n=-n;
-        if (b == 2) {
         n = __INT_MAX__ - n + 1;
-        itob(n,s,b);       
-        printf("%s\n",strrev(s)); 
-        } else {
+        goto print; 
+        }
+        else {
+            n=-n;
             printf("-");
-        
-        itob(n,s,b);
-        printf("%s\n",strrev(s));
+            goto print;
         }
     }
+    print:
+    itob(n,s,b);       
+    printf("%s",strrev(s));
+    printf(" (%d)\n", b);
     
  }
  void itob(int n,char s[],int b){
