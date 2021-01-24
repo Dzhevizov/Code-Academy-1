@@ -15,8 +15,7 @@ int main(void){
     }
     else if (n<0){
         if (b == 2 || b == 8 || b == 16){
-        n=-n;
-        n = __INT_MAX__ - n + 1;
+        n = __INT_MAX__ + n + 1;
         goto print; 
         }
         else {
